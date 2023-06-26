@@ -10,9 +10,6 @@ layout: compress
     <style>
       .post-list{
         flex-direction: column;
-        justify-content: center !important;
-        width: 100% !important;
-
       }
     </style>
     {% if site.google_tag_manager %}
@@ -25,7 +22,11 @@ layout: compress
     {% endif %}
 
     {% include header.html %}
-
+<div class="hero--small">
+<div class="hero__wrap">
+<h1 class="hero__title">{{ page.title }}</h1>
+</div>
+</div>
     <main class="site__content">
       <section class="blog">
         <div class="container">
