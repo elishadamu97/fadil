@@ -1,0 +1,53 @@
+<style>
+  .header__logo .header__logo--container {
+    width: 168px;
+    font-size: 25px;
+    font-weight: bolder;
+    margin-top: 20px;
+}
+</style>
+<header class="header" itemscope itemtype="http://schema.org/SiteNavigationElement" aria-label="Main navigation">
+  <div class="container">
+    <div class="header__inner">
+      <a class="header__logo" href="{{ '/' | relative_url }}">
+        <div class="header__logo--container">
+          <p>Fadil Isamotu</p>
+        </div>
+      </a>
+      <style>
+      
+        .header{
+          background-color: rgb(29, 31, 31) !important;
+         
+        }
+        .header__links {
+          background-color: rgb(29, 31, 31) !important;
+        }
+        .header a{
+          color: aliceblue;
+        }
+        .header a:hover{
+          color: rgb(215, 227, 237);
+        }
+        .items-title{
+          font-size: 19px !important;
+          font-weight: bolder !important;
+        }
+      </style>
+      <nav class="header__links">
+        <div class="container header__links-wrapper">
+          {% for item in site.navigation %}
+            <a class="header__link" href="{{ item.link | relative_url }}" itemprop="url">
+              <span class="items-title" itemprop="name">{{ item.name }}</span>
+            </a>
+          {% endfor %}
+        </div>
+      </nav>
+      <div class="header__toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+</header>

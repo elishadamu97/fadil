@@ -1,0 +1,50 @@
+<style>
+  .post-card{
+    flex: 46%;
+  } 
+  .lazyload{
+    width: 70% !important;
+  }
+  .blur.lazyloaded {
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    width: 100% !important;
+}
+
+  @media screen and (max-width: 480px) {
+    .post-card{
+    width: 90%;
+    margin-left: 17px;
+    margin-top: -27px;
+    margin-bottom: 40px;
+  } 
+}
+</style>
+<div class="post-card" itemprop="blogPosts" itemscope="" itemtype="http://schema.org/BlogPosting">
+  
+  <a target="_self" href="{{ post.url | relative_url }}">
+    {% if post.featured-img %}
+      <figure class="post-card__thumb">
+        <img 
+          src="{{ site.url }}{{ site.baseurl }}/assets/img/posts/{{post.featured-img}}"
+          class="lazyload blur"
+          alt="{{post.title}}"
+        />
+        <noscript><img src="{{ site.url }}{{ site.baseurl }}/assets/img/posts/{{post.featured-img}}_thumb.jpg" alt="{{ post.title }}"></noscript>
+      </figure>
+    {% else %}
+      <figure class="post-card__thumb">
+        <div class="dark-bg"></div>
+      </figure>
+    {% endif %}
+  </a>
+  <a target="_blank" class="post-card__inner" href="#">
+    <div class="post-card__header">
+      <center>
+        <h2>{{ post.title | strip_html | truncate: 50 }}</h2>
+      </center>
+      
+    </div>
+   
+  </a>
+</div>

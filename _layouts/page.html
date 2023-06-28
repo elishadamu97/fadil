@@ -1,0 +1,85 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en-US" }}">
+
+  {% include head.html %}
+
+  <body class="site">
+    <style>
+      .post-list {
+    flex-direction: row !important;
+    margin: -40px -80px 0px -66px;
+    display: flex;
+    flex-wrap: wrap;
+}
+      .hero--small {
+    margin: 0.75rem auto 0;
+    min-height: 8.75rem;
+    width: 100%;
+    position: relative;
+    background-color: #313237;
+}
+.hero__wrap .hero__title {
+    font-size: 50px;
+    color: #fff;
+    padding-top: 67px !important;
+}
+      .logo-img{
+        width: 100px !important;
+        height: fit-content !important;
+      }
+      h1, h2, h3, h4, h5, h6 {
+          color: #313237;
+          margin-top: -10px;
+          margin-bottom: 10px;
+      }
+      @media screen and (max-width: 480px) {
+        .post-list{
+        flex-direction: column !important;
+        margin: 22px 0px 0px 0px;
+        display: flex;
+        flex-wrap: wrap;
+      } 
+      .hero__wrap .hero__title {
+      font-size: 35px;
+      color: #fff;
+      padding-top: 67px !important;
+  }
+}
+    </style>
+    {% if site.google_tag_manager %}
+
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.google_tag_manager }}"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+
+    {% endif %}
+
+    {% include header.html %}
+<div class="hero--small">
+<div class="hero__wrap">
+<h1 class="hero__title">{{ page.title }}</h1>
+</div>
+</div>
+    <main class="site__content">
+      <section class="blog">
+        <div class="container">
+          <div class="post-list" itemscope="" itemtype="http://schema.org/Blog">
+
+            {% for post in site.posts %}
+              {% include card.html %}
+            {% endfor %}
+
+          
+          </div>
+        </div>
+      </section>
+    </main>
+    {% include footer.html %}
+
+  </body>
+
+</html>

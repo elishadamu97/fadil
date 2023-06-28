@@ -1,0 +1,93 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en-US" }}">
+
+{% include head.html %}
+
+<body class="site">
+
+{% include header.html %}
+
+
+<style>
+  .site__content{
+    display: flex;
+    flex-direction: row;
+  }
+  .nav-bar{
+    display: flex;
+    flex-direction: column !important;
+    margin-top: 60px;
+    position: fixed;
+  }
+
+ul{
+  list-style-type: none;
+}
+.anchor-text{
+  text-decoration: none !important;
+  color: black;
+  border-bottom: 0px !important;
+  margin-top: -10px !important;
+}
+li{
+  line-height: 5px !important;
+}
+.post-content{
+  margin-left: -100px;
+}
+@media screen and (max-width: 480px) {
+  .vl{
+    visibility: hidden;
+  }
+  .nav-bar{
+    visibility: hidden !important;
+  }
+  .post-content{
+    margin: 40px 0px 0px -255px !important;
+  }
+}
+</style>
+
+  <div class="site__content">
+    <div class="nav-bar">
+      <h1 style="margin-left: 40px; margin-top: 0px;">Overview</h1>
+      <hr>
+      {% for items  in site.posts %}
+
+      
+        <ul>
+            <li><a class="anchor-text" href="{{ items.url | relative_url }}">{{items.title}}</a></li>
+        </ul>
+      {% endfor %}
+    </div>
+    <style>
+      .vl {
+        border-left: 1px solid rgb(59, 100, 142);
+        height: auto;
+        margin-left: 250px;
+      }
+      </style>
+      </head>
+      <body>
+      
+      
+      <div class="vl"></div>
+    <div class="container">
+      <article class="post-content" itemprop="articleBody">
+
+        {{ content }}
+
+      </article>
+    </div> 
+  </div>
+
+
+
+  {% include footer.html %}
+  {% include mathjax.html %}
+</body>
+
+</html>
